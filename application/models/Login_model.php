@@ -46,7 +46,6 @@ class Login_model extends CI_Model
             'dep_id' => $row->dep_id,
             'hab_fecha' => $row->hab_fecha,
             'usu_celular' => $row->usu_celular,
-            'sec_id' => $row->sec_id,
             'sec_nombre' => $row->sec_nombre
         );
         return $data_session;

@@ -19,7 +19,7 @@
                         <th style="font-size: 15px;">DESCRIPCION<br>SOLICITUD</th>
                         <th style="font-size: 15px;">TRABAJO<br>REALIZADO</th>
                         <th style="font-size: 15px;">OBSERVACIONES</th>
-                        <!-- <th style="font-size: 15px;">PDF</th> -->
+                        <th style="font-size: 15px;">PDF</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +36,7 @@
                             <td><?php echo  $his->sop_descripcion; ?></td>
                             <td><?php echo  $his->sop_trab_realizado; ?></td>
                             <td><?php echo  $his->sop_observaciones; ?></td>
+                            <td><a href="<?php echo site_url("Tec_control/reprint_pdf/".$his->sop_id);?>" target="_blank"><span class="mif-file-pdf fg-red mif-5x"></button></a></td>
                             <?php $i++; ?>
                         <?php } ?>
 
@@ -48,10 +49,13 @@
 
 </body>
 <script>
-    $(document).ready(function()
-        {
-            $("#miTabla").tablesorter();
-        }
-    );
+    $(document).ready(function() {
+        $("#miTabla").tablesorter();
+    });
+
+    function reprintPDF(sop_id) {
+       
+    }
 </script>
+
 </html>

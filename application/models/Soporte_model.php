@@ -70,7 +70,13 @@ class Soporte_model extends CI_Model
 
         return $query->result();
     }
-
+    public function get_PDF($id)
+    {
+        $this->db->from('soporte');
+        $this->db->where('sop_id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
     /* Desarrollado por:
         Lic. Mark Erik Copa
         Ing. Nelson Erwin Aleluya
