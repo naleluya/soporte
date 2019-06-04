@@ -129,15 +129,23 @@
                         <?php
                         $i = 1;
                         foreach ($registro as $res) {
-                            if ($i = 1) {
-                                echo $res->sop_cod;
-                                break;
+                                 if ($i = 1 and $res->sop_informe >= 1) {
+                                    echo $res->sop_cod;
+                                    ?>
+                                    <div class="card-footer">
+                        <a href="<?php echo site_url("Tec_control/reprint_pdf/" . $res->sop_id); ?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
+                    </div>
+                                <?php break; }else{?>
+                                    <div class="card-footer">
+                                    <p>No hay registros</p>
+                                    </div>
+                                <?php break; 
                             }
-                        } ?>
+                            }
+
+                        ?>
                     </div>
-                    <div class="card-footer">
-                        <a href="<?php echo site_url("Tec_control/reprint_pdf/".$res->sop_id);?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
