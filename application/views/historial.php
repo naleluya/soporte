@@ -12,7 +12,8 @@
                 <thead style="background-color: #d8d8d8; ">
                     <tr>
                         <th style="font-size: 15px;">#</th>
-                        <th style="font-size: 15px;">TIPO<br>MANTENIMIENTO</th>
+                        <th style="font-size: 15px;">CODIGO<br>INFORME</th>
+                        <th style="font-size: 15px;">TIPO<br>MATTO.</th>
                         <th style="font-size: 15px;">SERVICIO</th>
                         <th style="font-size: 15px;">SOLICITANTE</th>
                         <th style="font-size: 15px;">FECHA<br>SOLICITUD</th>
@@ -29,6 +30,7 @@
                         ?>
                         <tr>
                             <td><?php echo  $i; ?></td>
+                            <td><b><?php echo 'US/'. $this->session->userdata('sec_nombre') .'/'.$his->sop_informe.'/'. $his->sop_gestion; ?></b></td>
                             <td><?php echo  $his->sop_tipo_sop; ?></td>
                             <td><?php echo  $his->sop_servicio; ?></td>
                             <td><span class="mif-user mif-2x"></span> <?php echo  $his->sop_funcionario_resp; ?></td>

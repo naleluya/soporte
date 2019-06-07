@@ -61,7 +61,7 @@
 
                     <div class="cell-md-3">
                         <label><b>COD GAMEA</b></label>
-                        <input type="number" class="mb-1" name="cod_gamea" id="cod_gamea">
+                        <input type="number" class="mb-1" name="cod_gamea" id="cod_gamea" data-validate="required number">
                         <span class="invalid_feedback">
                             <span class="mif-warning"></span>Cod Gamea
                         </span>
@@ -129,23 +129,24 @@
                         <?php
                         $i = 1;
                         foreach ($registro as $res) {
-                                 if ($i = 1 and $res->sop_informe >= 1) {
-                                    echo $res->sop_cod;
-                                    ?>
-                                    <div class="card-footer">
-                        <a href="<?php echo site_url("Tec_control/reprint_pdf/" . $res->sop_id); ?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
-                    </div>
-                                <?php break; }else{?>
-                                    <div class="card-footer">
+                            if ($i = 1 and $res->sop_informe > 0) {
+                                echo $res->sop_cod;
+                                ?>
+                                <div class="card-footer">
+                                    <a href="<?php echo site_url("Tec_control/reprint_pdf/" . $res->sop_id); ?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
+                                </div>
+                                <?php break;
+                            } else { ?>
+                                <div class="card-footer">
                                     <p>No hay registros</p>
-                                    </div>
-                                <?php break; 
+                                </div>
+                                <?php break;
                             }
-                            }
+                        }
 
                         ?>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

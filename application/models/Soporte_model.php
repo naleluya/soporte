@@ -74,9 +74,31 @@ class Soporte_model extends CI_Model
     {
         $this->db->from('soporte');
         $this->db->where('sop_id', $id);
+        $this->db->order_by("sop_informe", "desc");
         $query = $this->db->get();
         return $query->row();
     }
+    function get_all_data_user()
+    {
+        $query = $this->db->query("SELECT *
+                                    FROM usuario u
+                                    
+                                    INNER JOIN habilitar h
+                                    ON (h.usu_id = u.usu_id)
+                                    INNER JOIN roles r
+                                    ON (h.rol_id = r.rol_id)
+                                    WHERE h.rol_id=2
+                                    ");
+        return $query->result();
+    }
+
+    function listarPorCliente($usu_id)  {
+        return $this->db
+          ->where('usu_id', $usu_id)
+          ->order_by("sop_informe", "desc")
+          ->get()
+          ->result();
+      }
     /* Desarrollado por:
         Lic. Mark Erik Copa
         Ing. Nelson Erwin Aleluya

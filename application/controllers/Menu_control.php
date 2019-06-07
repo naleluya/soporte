@@ -29,6 +29,12 @@ class Menu_control extends CI_Controller
                 else
                     redirect('/Login_control/close_session', 'refresh');
                 break;
+            case $data_session['rol_nombre'] == 'TECNICO_ENCARGADO':
+                if ($data_session['hab_estado'] == true)
+                    redirect('/Tec_En_control/', 'refresh');
+                else
+                    redirect('/Login_control/close_session', 'refresh');
+                break;    
             case $data_session['rol_nombre'] == 'TECNICO':
                 if ($data_session['hab_estado'] == true)
                     redirect('/Tec_control/', 'refresh');
