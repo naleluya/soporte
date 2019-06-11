@@ -31,6 +31,8 @@
     <script src="<?php echo base_url();?>assets/js/jquery.form.min.js"></script>
     <!--    js tablesorter -->
     <script src="<?php echo base_url();?>assets/js/jquery.tablesorter.min.js"></script>
+    <!-- js chart -->
+    <script src="<?php echo base_url();?>assets/js/Chart.bundle.min.js"></script>
     <title>SOPORTE</title>
     <style>
         .app-bar-wrapper, .app-bar {

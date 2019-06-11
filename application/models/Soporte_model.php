@@ -11,7 +11,7 @@ class Soporte_model extends CI_Model
     }
     function list_gestion()
     {
-        $query=$this->db->get('gestion');
+        $query = $this->db->get('gestion');
         return $query->result();
     }
     function list_adminHab()
@@ -24,20 +24,13 @@ class Soporte_model extends CI_Model
         ");
         return $query->result();
     }
-    function list_prestamos()
-    {
-        $this->db->order_by("pre_fecha_prestamo", "desc");
-        $this->db->where('pre_estado',true );
-        $query=$this->db->get('prestamo');
-
-        return $query->result();
-    }
-    public function search_queries($bus_name_file,$bus_nro_file,$bus_year_file)
+    
+    public function search_queries($bus_name_file, $bus_nro_file, $bus_year_file)
     {
 
         $this->db->from($bus_name_file);
-        $this->db->where($bus_name_file.'_nro', $bus_nro_file);
-        $this->db->where($bus_name_file.'_gestion', $bus_year_file);
+        $this->db->where($bus_name_file . '_nro', $bus_nro_file);
+        $this->db->where($bus_name_file . '_gestion', $bus_year_file);
         $query = $this->db->get();
         return $query->row();
     }
@@ -66,7 +59,7 @@ class Soporte_model extends CI_Model
         $this->db->select('*');
         $this->db->where('usu_id', $usu_id);
         $this->db->order_by("sop_fecha_ingreso", "desc");
-        $query=$this->db->get('soporte');
+        $query = $this->db->get('soporte');
 
         return $query->result();
     }
@@ -92,13 +85,31 @@ class Soporte_model extends CI_Model
         return $query->result();
     }
 
-    function listarPorCliente($usu_id)  {
+    function list_tec($usu_id)
+    {
         return $this->db
-          ->where('usu_id', $usu_id)
-          ->order_by("sop_informe", "desc")
-          ->get()
-          ->result();
-      }
+            ->where('usu_id', $usu_id)
+            ->order_by("sop_informe", "desc")
+            ->get()
+            ->result();
+    }
+    function getReporte($id)
+    {
+        $this->db->from('soporte');
+        $this->db->where('usu_id', $id);
+        $query = $this->db->get();
+
+        return $query;
+    }
+
+    function get_all()
+    {
+        $this->db->from('soporte');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     /* Desarrollado por:
         Lic. Mark Erik Copa
         Ing. Nelson Erwin Aleluya

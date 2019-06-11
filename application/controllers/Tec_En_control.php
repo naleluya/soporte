@@ -14,6 +14,7 @@ class Tec_En_control extends CI_Controller{
         $this->load->library('upload');
         $this->load->library('ciqrcode');
         $this->load->library('Pdf');
+        $this->load->library('export_excel');
         
     }
 
@@ -388,7 +389,7 @@ class Tec_En_control extends CI_Controller{
         $data_session = $this->session->all_userdata();
         if (isset($data_session)) {
             if ($data_session['rol_nombre'] == 'TECNICO_ENCARGADO' and $data_session['hab_estado'] == true) {
-                $data['historial'] = $this->Soporte_model->list_Historial($data_session['usu_id']);
+                $data['registro'] = $this->Soporte_model->get_all();
                 $data['tecnicos']= $this->Soporte_model->get_all_data_user();
                 $this->load->view('head', $data_session);
                 $this->load->view('menus/menu_tec_en');
@@ -399,5 +400,10 @@ class Tec_En_control extends CI_Controller{
         } else {
             redirect('/Login_control/close_session', 'refresh');
         }
+    }
+    public function dExcel($id)
+    {
+        $result = $this->Soporte_model->getReporte($id);
+        $this->export_excel->to_excel($result, 'reporte de actividades');
     }
 }
