@@ -73,15 +73,15 @@
                                 <div id="donut3" data-role="donut" data-value="<?php echo $hh; ?>" data-hole=".6" data-stroke="#f5f5f5" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                            <label><strong style="color : #9C27B0">SOFTWARE</strong></label>
+                                <label><strong style="color : #9C27B0">SOFTWARE</strong></label>
                                 <div id="donut1" data-role="donut" data-value="<?php echo $ss; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#9C27B0" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                            <label><strong style="color : #ae4800">REDES</strong></label>
+                                <label><strong style="color : #ae4800">REDES</strong></label>
                                 <div id="donut1" data-role="donut" data-value="<?php echo $rr; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#ae4800" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                            <label><strong style="color : #4CAF50">DOMINIO</strong></label>
+                                <label><strong style="color : #4CAF50">DOMINIO</strong></label>
                                 <div id="donut1" data-role="donut" data-value="<?php echo $dd; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#4CAF50" data-animate="10"></div>
                             </div>
 

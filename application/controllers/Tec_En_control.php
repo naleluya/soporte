@@ -106,7 +106,7 @@ class Tec_En_control extends CI_Controller{
                 $data['tecnicos']= $this->Soporte_model->get_all_data_user();
                 $this->load->view('head', $data_session);
                 $this->load->view('menus/menu_tec_en');
-                $this->load->view('historial',$data);
+                $this->load->view('historial_en',$data);
             } else {
                 redirect('/Login_control/close_session', 'refresh');
             }
@@ -382,6 +382,43 @@ class Tec_En_control extends CI_Controller{
             $pdf->Output('soporte.pdf', 'I');
         } 
     }
+    public function get_sop($sop_id)
+    {
+        $data = $this->Soporte_model->getSop($sop_id);
+        echo json_encode($data);
+    }
+    public function edit_Sop()
+    {
+        $sop_tipo_sop = strip_tags(trim($this->input->post('e_tipo_soporte')));
+        $sop_funcionario_resp = strip_tags(trim(strtoupper($this->input->post('e_solicitante'))));
+        $sop_fun_res_ci = strip_tags(trim($this->input->post('e_ci_funcionario')));
+        $sop_fun_res_ci_emitido = strip_tags(trim($this->input->post('e_ci_emitido')));
+        $sop_cod_gamea = strip_tags(trim($this->input->post('e_cod_gamea')));
+        $sop_cargo_fun = strip_tags(trim(strtoupper($this->input->post('e_cargo_fun'))));
+        $sop_servicio = strip_tags(trim($this->input->post('e_servicio')));
+        $sop_descripcion = strip_tags(trim(strtoupper($this->input->post('e_descripcion'))));
+        $sop_trab_realizado = strip_tags(trim(strtoupper($this->input->post('e_trabajo_realizado'))));
+        $sop_observaciones = strip_tags(trim(strtoupper($this->input->post('e_observaciones'))));
+        $sop_observaciones = ('' == $sop_observaciones) ? 'NINGUNA' : $sop_observaciones;
+        $sop_id = $this->input->post('sop_id');
+
+        $data = array(
+            'sop_tipo_sop' => $sop_tipo_sop,
+            'sop_funcionario_resp' => $sop_funcionario_resp,
+            'sop_fun_res_ci' => $sop_fun_res_ci,
+            'sop_fun_res_ci_emitido' => $sop_fun_res_ci_emitido,
+            'sop_cod_gamea' => $sop_cod_gamea,
+            'sop_cargo_fun' => $sop_cargo_fun,
+            'sop_servicio' => $sop_servicio,
+            'sop_descripcion' => $sop_descripcion,
+            'sop_trab_realizado' => $sop_trab_realizado,
+            'sop_observaciones' => $sop_observaciones,            
+        );
+
+        $this->Soporte_model->updateSop($sop_id, $data);
+
+        redirect("Tec_En_control/historial_index");
+    }
 
     //////////////////TECNICOS-REPORTE///////////////
     public function reporte_index()
@@ -406,4 +443,5 @@ class Tec_En_control extends CI_Controller{
         $result = $this->Soporte_model->getReporte($id);
         $this->export_excel->to_excel($result, 'reporte de actividades');
     }
+    
 }

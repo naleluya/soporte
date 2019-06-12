@@ -53,7 +53,7 @@
 <div data-role="dialog" id="regEdit" style="background-color: #f4eeb2" data-width="800">
     <div class="dialog-title" style="font-weight:900;">ACTUALIZAR DATOS</div>
     <div class="dialog-content">
-        <form data-role="validator" method="post" action="<?php echo site_url('Tec_control/edit_Sop'); ?>">
+        <form data-role="validator" method="post" action="<?php echo site_url('Tec_En_control/edit_Sop'); ?>">
             <input type="hidden" name="sop_id">
             <div class="row mb-4">
                 <div class="cell-md-3">
@@ -172,7 +172,7 @@
     function editReg(sop_id)
     {
         $.ajax({
-            url: "<?php echo site_url('Tec_control/get_sop/'); ?>"+sop_id,
+            url: "<?php echo site_url('Tec_En_control/get_sop/'); ?>"+sop_id,
             type: "GET",
             dataType: "JSON",
             success: function (data) {

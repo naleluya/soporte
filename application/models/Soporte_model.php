@@ -110,6 +110,24 @@ class Soporte_model extends CI_Model
         return $query->result();
     }
 
+    function getSop($sop_id)
+    {
+        $this->db->from('soporte');
+        $this->db->where('sop_id', $sop_id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function updateSop($sop_id, $data)
+    {
+        $this->db->where('sop_id', $sop_id);
+        $this->db->update('soporte', $data);
+        if ($this->db->affected_rows() > 0)
+            return true;
+        else
+            return false;
+    }
+
     /* Desarrollado por:
         Lic. Mark Erik Copa
         Ing. Nelson Erwin Aleluya
