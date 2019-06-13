@@ -20,7 +20,7 @@ class Soporte_model extends CI_Model
                         FROM usuario INNER JOIN habilitar ON (usuario.usu_id = habilitar.usu_id) 
                         INNER JOIN roles ON (habilitar.rol_id = roles.rol_id)
                         WHERE roles.rol_id=1 and habilitar.hab_estado='t'
-                        ORDER by usuario.usu_paterno; 
+                        ORDER by usuario.usu_paterno;
         ");
         return $query->result();
     }
@@ -89,7 +89,7 @@ class Soporte_model extends CI_Model
     {
         return $this->db
             ->where('usu_id', $usu_id)
-            ->order_by("sop_informe", "desc")
+            ->order_by("sop_cod", "desc")
             ->get()
             ->result();
     }
@@ -127,9 +127,20 @@ class Soporte_model extends CI_Model
         else
             return false;
     }
+    function list_ultimo($usu_id)
+    {
+        $query = $this->db->query(
+                                "SELECT sop_cod, sop_id, sop_informe
+                                FROM soporte
+                                WHERE usu_id = $usu_id
+                                ORDER BY sop_cod desc
+                                LIMIT 1"
+                                );
+
+        return $query->row();
+    }
 
     /* Desarrollado por:
-        Lic. Mark Erik Copa
         Ing. Nelson Erwin Aleluya
         G.A.M.E.A.
         2018 */

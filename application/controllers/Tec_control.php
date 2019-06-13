@@ -22,7 +22,7 @@ class Tec_control extends CI_Controller{
         $data_session = $this->session->all_userdata();
         if (isset($data_session)) {
             if ($data_session['rol_nombre'] == 'TECNICO' and $data_session['hab_estado'] == true) {
-                $data['registro'] = $this->Soporte_model->list_Historial($data_session['usu_id']);
+                $data['registro'] = $this->Soporte_model->list_ultimo($data_session['usu_id']);
                 $this->load->view('head', $data_session);
                 $this->load->view('menus/menu_tec');
                 $this->load->view('soporte', $data);
@@ -123,7 +123,10 @@ class Tec_control extends CI_Controller{
         $data = $this->Soporte_model->get_PDF($sop_id);
         $data_session = $this->session->all_userdata();
         
-        $fecha = date('Y-m-d');
+        $fecha = $data->sop_fecha_ingreso;
+        $ano = substr($fecha, -10, 4);
+        $mes = substr($fecha, -5, 2);
+        $dia = substr($fecha, -2, 2);
         $gestion = date('Y');
         
         switch ($data->sop_fun_res_ci_emitido) {
@@ -205,7 +208,7 @@ class Tec_control extends CI_Controller{
             $html_cabecera='
                 <br>
                 <p style="text-indent: 30px;text-align:justify;font-family:Verdana;">
-                Por medio de la presente acta, los que suscriben, que a la fecha '.$date.', 
+                Por medio de la presente acta, los que suscriben, que a la fecha '.$dia.' de '.$mes.' de '.$ano.', 
                 se ha dado por concluido <b>“LA MIGRACIÓN DE USUARIO A RED DE DOMINIO”</b> con todas las tareas 
                 complementarias, los mismos que han sido desarrollados a satisfacción. Dejando constancia 
                 que el personal de la <b>Unidad de Sistemas</b>, realizando las pruebas necesarias, deja en buen 
@@ -299,7 +302,7 @@ class Tec_control extends CI_Controller{
             $html_cabecera='
                 <br>
                 <p style="text-indent: 30px;text-align:justify;font-family:Verdana;font-style: italic;">
-                    En la ciudad de El Alto, <b>'.$date.'</b> se realizo el soporte técnico que se detalla a continuación:
+                    En la ciudad de El Alto, <b>'.$dia.' de '.$mes.' de '.$ano.'</b> se realizo el soporte técnico que se detalla a continuación:
                 </p><br>';
             $pdf->writeHTML($html_cabecera, true, false, true, false, '');
 
@@ -344,7 +347,7 @@ class Tec_control extends CI_Controller{
                             <th colspan="2"><b>DESCRIPCION DE LA SOLICITUD: <br></b>'.$data->sop_descripcion.'</th>
                         </tr>
                         <tr>
-                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'. $date .'</th>
+                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'.$dia.' de '.$mes.' de '.$ano.'</th>
                         </tr>
                         <tr>
                             <th colspan="2"><b>TRABAJO REALIZADO.  </b><br>'. $data->sop_trab_realizado .'</th>

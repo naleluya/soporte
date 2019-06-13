@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="example pb-0">
-            <form data-role="validator" method="post" class="mb-2" action="<?php echo site_url('Tec_control/save_registro'); ?>" id="formSoporte">
+            <form data-role="validator" method="post" class="mb-2" action="<?php echo site_url('Tec_En_control/save_registro'); ?>" id="formSoporte">
                 <p class="text-bold">SOPORTE</p>
                 <div class="row mb-4">
                     <div class="cell-md-3">
@@ -124,7 +124,7 @@
         <div class="row">
             <div class="cell-md-3 text-center-md text-left pt-2">
                 <div class="card image-header">
-                    <div class="card-content p-2">
+                <div class="card-content p-2">
                         <b>Ultimo registro: </b>
                         <?php
                         if (isset($registro))
@@ -137,7 +137,7 @@
                             else {
                                 echo "No hay registros";
                             }
-                        ?>
+                            ?>
                     </div>
                 </div>
             </div>

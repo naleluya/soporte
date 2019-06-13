@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');  
 
-class export_excel{
+class Export_excel{
 
     function to_excel($array, $filename) {
         header('Content-Disposition: attachment; filename='.$filename.'.xls');
