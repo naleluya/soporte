@@ -127,17 +127,16 @@
                     <div class="card-content p-2">
                         <b>Ultimo registro: </b>
                         <?php
-                        if (isset($registro))
-                        {echo $registro->sop_cod;
-                        ?>
-                        <div class="card-footer">
-                            <a href="<?php echo site_url("Tec_control/reprint_pdf/" . $registro->sop_id); ?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
-                        </div>
-                            <?php } 
-                            else {
-                                echo "No hay registros";
-                            }
-                        ?>
+                        if (isset($registro)) {
+                            echo $registro->sop_cod;
+                            ?>
+                            <div class="card-footer">
+                                <a href="<?php echo site_url("Tec_control/reprint_pdf/" . $registro->sop_id); ?>" target="_blank"><span class="mif-print mif-3x"></span> Imprimir</a>
+                            </div>
+                        <?php } else {
+                        echo "No hay registros";
+                    }
+                    ?>
                     </div>
                 </div>
             </div>

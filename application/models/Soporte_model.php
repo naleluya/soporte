@@ -112,9 +112,8 @@ class Soporte_model extends CI_Model
 
     function getSop($sop_id)
     {
-        $this->db->from('soporte');
         $this->db->where('sop_id', $sop_id);
-        $query = $this->db->get();
+        $query = $this->db->get('soporte');
         return $query->row();
     }
 

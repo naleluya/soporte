@@ -86,7 +86,7 @@
                 </div>
                 <div class="cell-md-3">
                     <label><b>EMITIDO</b></label>
-                    <select name="e_ci_emitido" data-role="select">
+                    <select name="e_ci_emitido" id="e_ci_emitido">
                         <option value="1">LP</option>
                         <option value="2">CB</option>
                         <option value="3">SC</option>
@@ -117,8 +117,8 @@
                 </span>
                 <div class="cell-md-4">
                     <label><b>SERVICIO</b></label>
-                    <select name="e_servicio" id="servicio" data-role="select" data-validate="required">
-                        <option value="0">--Seleccione--</option>
+                    <select name="e_servicio" id="e_servicio" data-validate="required">
+                        <option value="">--Seleccione--</option>
                             <option value="MANTENIMIENTO CORRECTIVO">MANTENIMIENTO CORRECTIVO</option>
                             <option value="MANTENIMIENTO PREVENTIVO">MANTENIMIENTO PREVENTIVO</option>
                             <option value="INSTALACION">INSTALACION</option>
@@ -134,7 +134,7 @@
             <div class="row mb-3">
                 <div class="cell-md-4">
                     <label><b>DESCRIPCION DE LA SOLICITUD</b></label>
-                    <textarea class="text-upper" name="e_descripcion" data-validate="required"></textarea>
+                    <input class="text-upper" name="e_descripcion" data-validate="required">
                     <span class="invalid_feedback">
                         <span class="mif-warning"></span>Ingresar descripcion
                     </span>
@@ -179,10 +179,10 @@
                 $('[name="e_tipo_soporte"]:checked').val(data.sop_tipo_sop);
                 $('[name="e_solicitante"]').val(data.sop_funcionario_resp);
                 $('[name="e_ci_funcionario"]').val(data.sop_fun_res_ci);
-                $('[name="e_ci_emitido"]').val(data.sop_fun_res_emitido);
+                $('#e_ci_emitido').val(data.sop_fun_res_emitido);
                 $('[name="e_cod_gamea"]').val(data.sop_cod_gamea);
                 $('[name="e_cargo_fun"]').val(data.sop_cargo_fun);
-                $('[name="e_servicio"]').val(data.sop_servicio);
+                $('#e_servicio').val(data.sop_servicio).selectmenu('refresh', true);
                 $('[name="e_descripcion"]').val(data.sop_descripcion);
                 $('[name="e_trabajo_realizado"]').val(data.sop_trab_realizado);
                 $('[name="e_observaciones"]').val(data.sop_observaciones);
