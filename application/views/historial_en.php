@@ -39,7 +39,7 @@
                             <td><?php echo  $his->sop_descripcion; ?></td>
                             <td><?php echo  $his->sop_trab_realizado; ?></td>
                             <td><?php echo  $his->sop_observaciones; ?></td>
-                            <td><a href="<?php echo site_url("Tec_control/reprint_pdf/" . $his->sop_id); ?>" target="_blank"><span class="mif-file-pdf fg-red mif-5x"></button></a></td>
+                            <td><a href="<?php echo site_url("Tec_En_control/reprint_pdf/" . $his->sop_id); ?>" target="_blank"><span class="mif-file-pdf fg-red mif-5x"></button></a></td>
                             <td><button onclick="editReg(<?php echo $his->sop_id; ?>)" class="button success cycle drop-shadow"><span class="mif-pencil"></span></button></td>
                             <?php $i++; ?>
                         <?php } ?>

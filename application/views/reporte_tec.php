@@ -11,7 +11,7 @@
     <div data-role="accordion" data-one-frame="true" data-show-active="true">
         <?php foreach ($tecnicos as $tec) { ?>
             <div class="frame">
-                <div class="heading"><?php echo $tec->usu_nombres; ?></div>
+                <div class="heading"><b><?php echo $tec->sec_nombre; ?></b> - <?php echo $tec->usu_nombres; ?> <?php echo $tec->usu_paterno; ?></div>
                 <div class="content">
                     <div class="p-2">
                         <div class="row mb-4">
@@ -69,19 +69,19 @@
 
                             ?>
                             <div class="cell-md-2">
-                                <label><strong style="color : #49649f;">HARDWARE</strong></label>
+                                <label><strong style="color : #49649f;">HARDWARE - <?php echo $h; ?></strong> </label>
                                 <div id="donut1" data-role="donut" data-value="<?php echo $hh; ?>" data-hole=".6" data-stroke="#f5f5f5" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                                <label><strong style="color : #9C27B0">SOFTWARE</strong></label>
+                                <label><strong style="color : #9C27B0">SOFTWARE - <?php echo $s; ?></strong> </label>
                                 <div id="donut2" data-role="donut" data-value="<?php echo $ss; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#9C27B0" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                                <label><strong style="color : #ae4800">REDES</strong></label>
+                                <label><strong style="color : #ae4800">REDES- <?php echo $r; ?></strong> </label>
                                 <div id="donut3" data-role="donut" data-value="<?php echo $rr; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#ae4800" data-animate="10"></div>
                             </div>
                             <div class="cell-md-2">
-                                <label><strong style="color : #4CAF50">DOMINIO</strong></label>
+                                <label><strong style="color : #4CAF50">DOMINIO - <?php echo $d; ?></strong> </label>
                                 <div id="donut4" data-role="donut" data-value="<?php echo $dd; ?>" data-hole=".6" data-stroke="#f5f5f5" data-fill="#4CAF50" data-animate="10"></div>
                             </div>
 

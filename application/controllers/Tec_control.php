@@ -324,7 +324,7 @@ class Tec_control extends CI_Controller{
                             
                             padding-top: 5pt;
                             padding-bottom: 5pt;
-                            height: 100px;
+                            height: 130px;
                             }
                       </style>
                 <table>
@@ -335,7 +335,8 @@ class Tec_control extends CI_Controller{
                     </thead>
                   <tbody>
                         <tr>
-                            <th colspan="2"><b>MANTENIMIENTO:  </b>'. $data->sop_tipo_sop .'</th>
+                            <th><b>SOPORTE TECNICO:  </b>'. $data->sop_tipo_sop .'</th>
+                            <th><b>CODIGO GAMEA: </b> '. $data->sop_cod_gamea.'</th>
                         </tr>
                         <tr>
                             <th colspan="2"><b>SERVICIO:  </b>'. $data->sop_servicio .'</th>
@@ -347,7 +348,7 @@ class Tec_control extends CI_Controller{
                             <th colspan="2"><b>DESCRIPCION DE LA SOLICITUD: <br></b>'.$data->sop_descripcion.'</th>
                         </tr>
                         <tr>
-                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'.$dia.' de '.$mes.' de '.$ano.'</th>
+                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'.$dia.' / '.$mes.' / '.$ano.'</th>
                         </tr>
                         <tr>
                             <th colspan="2"><b>TRABAJO REALIZADO.  </b><br>'. $data->sop_trab_realizado .'</th>

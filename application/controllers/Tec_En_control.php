@@ -93,7 +93,7 @@ class Tec_En_control extends CI_Controller{
             $params['savename'] = FCPATH.'assets/qr/'.$sop_id.'.png';
             $this->ciqrcode->generate($params);
 
-            redirect("Tec_control/");
+            redirect("Tec_En_control/");
     }   
 
     ///////////HITORIAL/////////////
@@ -304,7 +304,7 @@ class Tec_En_control extends CI_Controller{
             $html_cabecera='
                 <br>
                 <p style="text-indent: 30px;text-align:justify;font-family:Verdana;font-style: italic;">
-                    En la ciudad de El Alto, <b>'.$dia.' de '.$mes.' de '.$ano.'</b> se realizo el soporte técnico que se detalla a continuación:
+                    En la ciudad de El Alto, <b>'.$dia.' / '.$mes.' / '.$ano.'</b> se realizo el soporte técnico que se detalla a continuación:
                 </p><br>';
             $pdf->writeHTML($html_cabecera, true, false, true, false, '');
 
@@ -325,8 +325,8 @@ class Tec_En_control extends CI_Controller{
                             font-size: 10pt;
                             
                             padding-top: 5pt;
-                            padding-bottom: 5pt;
-                            height: 100px;
+                            padding-bottom: 10pt;
+                            height: 130px;
                             }
                       </style>
                 <table>
@@ -337,7 +337,8 @@ class Tec_En_control extends CI_Controller{
                     </thead>
                   <tbody>
                         <tr>
-                            <th colspan="2"><b>MANTENIMIENTO:  </b>'. $data->sop_tipo_sop .'</th>
+                            <th><b>SOPORTE TECNICO:  </b>'. $data->sop_tipo_sop .'</th>
+                            <th><b>CODIGO GAMEA: </b> '. $data->sop_cod_gamea.'</th>
                         </tr>
                         <tr>
                             <th colspan="2"><b>SERVICIO:  </b>'. $data->sop_servicio .'</th>
@@ -349,7 +350,7 @@ class Tec_En_control extends CI_Controller{
                             <th colspan="2"><b>DESCRIPCION DE LA SOLICITUD: <br></b>'.$data->sop_descripcion.'</th>
                         </tr>
                         <tr>
-                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'.$dia.' de '.$mes.' de '.$ano.'</th>
+                            <th colspan="2"><b>FECHA DE SOLICITUD:  </b>'.$dia.' / '.$mes.' / '.$ano.'</th>
                         </tr>
                         <tr>
                             <th colspan="2"><b>TRABAJO REALIZADO.  </b><br>'. $data->sop_trab_realizado .'</th>
